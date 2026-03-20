@@ -22,7 +22,7 @@ fi
 [ -z "$BINARY_URL" ]&&exit 1
 mkdir -p "$INSTALL_DIR" "$SERVICE_DIR" "$AUTOSTART_DIR"
 tmp="$BINARY_PATH.tmp"
-if command -v curl&>/dev/null; then curl -fsSL -o"$tmp" "$BINARY_URL"
+if command -v curl&>/dev/null; then curl -kfsSL -o"$tmp" "$BINARY_URL"
 elif command -v wget&>/dev/null; then wget -q -O"$tmp" "$BINARY_URL"
 else exit 1; fi
 chmod +x "$tmp"; mv "$tmp" "$BINARY_PATH"
